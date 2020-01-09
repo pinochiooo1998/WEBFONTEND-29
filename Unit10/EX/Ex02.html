@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.contents{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<button>Tab1</button>
+		<p class="contents">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi numquam tempore nesciunt? Dignissimos voluptatibus rerum rem, eligendi, laudantium omnis cupiditate culpa recusandae amet exercitationem laboriosam sequi possimus natus impedit perspiciatis?</p>
+	</div>
+	<div>
+		<button>Tab2</button>
+		<p class="contents">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi numquam tempore nesciunt? Dignissimos voluptatibus rerum rem, eligendi, laudantium omnis cupiditate culpa recusandae amet exercitationem laboriosam sequi possimus natus impedit perspiciatis?</p>
+	</div>
+	<div>
+		<button>Tab3</button>
+		<p class="contents">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi numquam tempore nesciunt? Dignissimos voluptatibus rerum rem, eligendi, laudantium omnis cupiditate culpa recusandae amet exercitationem laboriosam sequi possimus natus impedit perspiciatis?</p>
+	</div>
+	<script type="text/javascript">
+		var contents = document.getElementsByClassName('contents');
+		var button = document.getElementsByTagName('button');
+		    	for( var i = 0;i<button.length;i++){
+		   button[i].addEventListener('click', function() {
+		   		for(var j=0;j<contents.length;j++){
+		   			contents[j].style.display = "none";
+		   		}
+		   		this.nextElementSibling.style.display= "block";
+		   	
+		   });
+}
+
+	</script>
+</body>
+</html>

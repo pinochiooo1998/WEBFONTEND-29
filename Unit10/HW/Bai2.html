@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bai 2</title>
+	<style type="text/css">
+		#form{
+			width: 750px;
+			height: 270px;
+			margin: auto;
+			margin-top: 150px;
+			border: solid 1px black;
+			font-weight: bold;
+			border-radius: 20px 20px;
+			padding-left: 10px;
+
+		}
+		.size{
+			width: 300px;
+
+		}
+		body{
+			background-image: url(../Anh/3451a2ebb9c1269890dbb209501cb99e.jpg);
+			background-size: cover;
+
+		}
+		#button{
+			margin-left: 450px;
+			padding-top: 20px;
+		}
+		#button button{
+			background-color: #b82116;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<div id="form">
+		<form name="frm">
+			<br>
+		Họ và tên &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="name" placeholder="Nhập họ tên..." class="size">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span style="color: red"></span><br><br>
+		Giới tính &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="radio" name="gender">Nam<input type="radio" name="gender">Nữ<br><br>
+		Email &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="email" name="email" placeholder="Nhập email..." class="size">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  <span style="color: red"></span><br><br>
+		Số điện thoại &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="phone" placeholder="Nhập số điện thoại..." class="size">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  <span style="color: red"></span><br><br>
+		Mật khẩu &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="password" name="password" class="size">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  <span style="color: red"></span><br><br>
+		Xác nhận mật khẩu &nbsp&nbsp&nbsp<input type="password" name="demopassword"class="size"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span style="color: red"></span>
+	</form>
+	</div>
+	<div id="button">
+		<button>Đăng ký</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<button>Xóa trắng</button>
+	</div>
+	<script type="text/javascript">
+		var b = document.getElementsByTagName('button')[0]
+		b.addEventListener('click', function(even) {
+			event.preventDefault();
+            var name = document.frm.name;
+            var email = document.frm.email;
+            var phone = document.frm.phone;
+            var password = document.frm.password;
+            var demopassword = document.frm.demopassword;
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+            if (name.value=="") {
+            	name.nextElementSibling.innerHTML = "Yêu cầu nhập đủ họ tên";
+    
+           } else if(name.value.length<=8){
+                name.nextElementSibling.innerHTML = "Họ tên phải lớn hơn 8 ký tự";         
+            }
+            else{
+            	name.nextElementSibling.innerHTML = "";
+            }
+             if (email.value=="") {
+            	email.nextElementSibling.innerHTML = "Yêu cầu nhập đủ email";
+         
+            } 
+            else if(!filter.test(email.value)){
+            	email.nextElementSibling.innerHTML = "Hãy nhập địa chỉ email hợp lệ";
+          
+            }
+            else{
+            	email.nextElementSibling.innerHTML = "";
+            }
+            if (phone.value == "") {
+				phone.nextElementSibling.innerHTML = "Nhập số điện thoại";
+			}else if (!Number(phone.value)) {
+				phone.nextElementSibling.innerHTML = "Số điện thoại không được chứa chữ";
+			}else if (phone.value.length < 10 || phone.value.length > 10) {
+				sdt.nextElementSibling.innerHTML = "Số điện thoại phải có 10 số";
+			}else {
+				phone.nextElementSibling.innerHTML = "";
+			}
+            if (password.value=="") {
+            	password.nextElementSibling.innerHTML = "Yêu cầu nhập mật khẩu";
+            }
+            else{
+            	password.nextElementSibling.innerHTML = "";
+            }
+            if (password.value==demopassword.value) {
+            	demopassword.nextElementSibling.innerHTML ="";
+            }          
+            else{
+            	demopassword.nextElementSibling.innerHTML ="Không khớp mật khẩu";
+            }
+            if (demopassword.value=="") {
+            	demopassword.nextElementSibling.innerHTML = "Yêu cầu xác nhận mật khẩu";
+
+            }
+            alert("Bạn đã đăng ký thành công!");
+            
+
+
+
+            
+    
+
+
+            
+
+		});
+
+	</script>
+</body>
+</html>

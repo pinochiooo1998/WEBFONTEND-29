@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bai 1</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding:0px;
+		}
+		#imgs{
+			width: 650px;
+			height: 350px;
+			margin: 0px auto;
+			border: solid 1px gray;
+			position: relative;
+
+		}
+        .Anh{
+        	width: 650px;
+        	height: 350px;
+        }
+        #buttons1{
+        	margin:0px auto;
+        	position: absolute;
+        	left: 340px;
+        	bottom: 450px;
+
+        }
+        #buttons2{
+        	margin:0px auto;
+        	position: absolute;
+        	left: 950px;
+        	bottom: 450px;
+        }
+        #buttons1 button, #buttons2 button{
+        	font-size: 40px;
+       }
+       .list{
+            cursor:pointer;
+            height: 13px;
+            width: 13px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+          }
+          .list:hover {
+            background-color: #717171;
+          }
+          #curent{
+            position: absolute;
+            left: 870px;
+            bottom: 300px;
+          }
+
+	</style>
+</head>
+<body>
+	<div id="imgs">
+	<img src="../Anh/Anh1.jpg" class="Anh">
+	<img src="../Anh/hinh-anh-anime-One-Piece-dep.jpg" class="Anh">
+	<img src="../Anh/hinh-anh-one-piece-4.jpg"  class="Anh">
+	<img src="../Anh/hinh-nen-one-piece-cho-may-tinh-2.jpg" class="Anh">
+	<img src="../Anh/fd51d849712a774bec066f7ce26371f5.jpg" class="Anh">
+</div>
+	<div id="buttons1">
+	<button onclick="pre()"><</button>
+	</div>
+	<div id="buttons2">
+	<button onclick="next()">></button>
+</div>
+<div id="curent">
+        <span class="list" onclick="currentSlide(0)"></span> 
+        <span class="list" onclick="currentSlide(1)"></span> 
+        <span class="list" onclick="currentSlide(2)"></span> 
+        <span class="list" onclick="currentSlide(3)"></span> 
+        <span class="list" onclick="currentSlide(4)"></span> 
+      </div>  
+	
+
+	<script type="text/javascript">
+		var img = document.getElementsByClassName('Anh');
+		var list = document.getElementsByClassName("list");
+        var index = 0;
+        showAnh(0);
+          //Next đến ảnh tiếp theo
+          function next(){
+          	index++;
+
+          	if (index>4) {
+          		index = 0;
+          	}
+          	showAnh(index);
+          }
+          //pre về ảnh trước
+          function pre(){
+          	index--;
+          	if (index<0) {
+          		index=4;
+          	}
+          	showAnh(index);
+          }
+          //Trỏ đến vị trí n của slide
+		function showAnh(n) {
+			for (var i = 0; i <img.length; i++) {
+				img[i].style.display="none";
+			}
+			img[n].style.display="block";
+		}
+		setInterval(function(){
+			next();
+		}, 3000);
+	</script>
+</body>
+</html>

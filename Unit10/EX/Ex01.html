@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bai luyen</title>
+</head>
+<body>
+      <form action="#" name="frm">
+      	Họ và tên: <input type="text" name="name"><span style="color: red"></span><br>
+      	Email: <input type="email" name="email"><span style="color: red"></span><br>
+      	Số điện thoại: <input type="text" name="phone"><span style="color: red"></span><br>
+      	<button>Đăng ký</button>
+      </form>   
+      <script type="text/javascript">
+      	var buttons = document.getElementsByTagName('button')[0];
+      	buttons.addEventListener('click', function(event) {
+      		event.preventDefault();
+      		var name = document.frm.name;
+      		var email = document.frm.email;
+      		var phone = document.frm.phone;
+        if (name.value=="") {
+        	name.nextElementSibling.innerHTML = "Nhập đầy đủ họ tên";
+        } else if (name.value.length<=8) {
+        	name.nextElementSibling.innerHTML="Họ tên phải lớn hơn 8 ký tự";
+        }else{
+        	name.nextElementSibling.innerHTML="";
+        }
+        if (name.value=="") {
+        	email.nextElementSibling.innerHTML = "Nhập đầy đủ email";
+        }else if (!validaeEmail) {}
+        if (phone.value=="") {
+        	phone.nextElementSibling.innerHTML = "Nhập đầy đủ số điện thoại";
+        }
+         
+      	});
+      </script>                     
+</body>
+</html>
