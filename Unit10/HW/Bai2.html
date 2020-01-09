@@ -63,49 +63,58 @@
 
             if (name.value=="") {
             	name.nextElementSibling.innerHTML = "Yêu cầu nhập đủ họ tên";
-    
+                return;
+            	
            } else if(name.value.length<=8){
-                name.nextElementSibling.innerHTML = "Họ tên phải lớn hơn 8 ký tự";         
+                name.nextElementSibling.innerHTML = "Họ tên phải lớn hơn 8 ký tự";
+                return;         
             }
             else{
             	name.nextElementSibling.innerHTML = "";
             }
              if (email.value=="") {
             	email.nextElementSibling.innerHTML = "Yêu cầu nhập đủ email";
+            	return;
          
             } 
             else if(!filter.test(email.value)){
             	email.nextElementSibling.innerHTML = "Hãy nhập địa chỉ email hợp lệ";
-          
+                  return;
             }
             else{
             	email.nextElementSibling.innerHTML = "";
             }
             if (phone.value == "") {
 				phone.nextElementSibling.innerHTML = "Nhập số điện thoại";
+				return;
 			}else if (!Number(phone.value)) {
 				phone.nextElementSibling.innerHTML = "Số điện thoại không được chứa chữ";
-			}else if (phone.value.length < 10 || phone.value.length > 10) {
+				return;
+			}
+			 if (phone.value.length < 10 || phone.value.length > 10) {
 				sdt.nextElementSibling.innerHTML = "Số điện thoại phải có 10 số";
+				return;
 			}else {
 				phone.nextElementSibling.innerHTML = "";
 			}
             if (password.value=="") {
             	password.nextElementSibling.innerHTML = "Yêu cầu nhập mật khẩu";
+            	return;
             }
             else{
             	password.nextElementSibling.innerHTML = "";
-            }
-            if (password.value==demopassword.value) {
-            	demopassword.nextElementSibling.innerHTML ="";
-            }          
-            else{
-            	demopassword.nextElementSibling.innerHTML ="Không khớp mật khẩu";
-            }
+            }                                
             if (demopassword.value=="") {
             	demopassword.nextElementSibling.innerHTML = "Yêu cầu xác nhận mật khẩu";
-
-            }
+               return;
+             }else if (password.value==demopassword.value){
+            	demopassword.nextElementSibling.innerHTML ="Không khớp mật khẩu";
+            	return;
+                }
+             else{
+             	demopassword.nextElementSibling.innerHTML = "";
+             }
+            
             alert("Bạn đã đăng ký thành công!");
             
 
