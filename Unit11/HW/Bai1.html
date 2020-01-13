@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Bài 1</title>
+   <script src="../Js/jquery-3.4.1.min.js"></script>
+   <link rel="stylesheet" href="../../Unit04/css/font-awesome.min.css">
+   <style>
+      #infor{
+         width: 50%;
+         margin: 0 auto;
+      }
+      .menu{
+         width: 150px;
+         height: 40px;
+         border-radius: 10px;
+         line-height: 40px;
+         float: left;
+         text-align: center;
+         background-color: #85b0ed;
+         border: solid 1px#85b0ed;
+         color: white;
+      }
+      .menu1{
+         width: 150px;
+         height: 40px;
+         border-radius: 10px;    
+         line-height: 40px;
+         float: left;
+         margin-left: 10px;
+         text-align: center;
+         background-color: #85b0ed;
+         border: solid 1px#85b0ed;
+         color: white;
+         margin-bottom: 20px
+      }
+      .menu2{
+         width: 150px;
+         height: 40px;
+         border-radius: 10px;
+         line-height: 40px;
+         float: left;
+         margin-left: 10px;
+         text-align: center;
+         background-color: #85b0ed;
+         border: solid 1px#85b0ed;
+         color: white;
+      }
+      .menu3{
+         width: 150px;
+         height: 40px;
+         border-radius: 10px;
+         line-height: 40px;
+         float: left;
+         margin-left: 10px;
+         text-align: center;
+         background-color: #85b0ed;
+         border: solid 1px#85b0ed;
+         color: white;
+      }
+      .content{
+         clear: both;
+         background: #3333;
+         border-radius: 10px;
+         height: 400px;
+         padding-left: 20px;
+         padding-top: 20px;
+
+      }
+      #iconbutton{
+         margin-top: 10px;
+         border-radius: 5px 5px;
+      }
+   </style>
+</head>
+<body>
+   <div id="infor">
+      <div class="menu"> 1.Account</div>
+      <div class="menu1"> 2.Profile</div>
+      <div class="menu2"> 3.Warning</div>
+      <div class="menu3"> 4.Finish</div>
+      <div class="allcontent">
+         <div class="content">
+            <div style="font-weight: bold;font-size: 30px">Account Information</div>
+            <hr>
+            <br><br>
+            <div>
+            User name *<br>
+            <input type="text" class="name"><span class="erorr" style="color: red"></span><br><br>
+            Password *<br>
+            <input type="password" class="pass1"><span class="erorr" style="color: red"></span><br><br>
+            Confirm Password *<br>
+            <input type="password" class="pass2"><span class="erorr" style="color: red"></span><br><br>
+            (*) Mandatory
+            </div>
+         </div>
+         <div class="content">
+            <div style="font-weight: bold;">Profile Information</div>
+            <hr>
+            <br><br>
+            <div>
+            First name *<br>
+            <input type="text" class="1name"><br><br>
+            Last name *<br>
+            <input type="text"><br><br>
+            Email *<br>
+            <input type="text"><br><br>
+            Address * <br>
+            <input type="text"><br><br>
+            Age (The warning step will show up if age is less than 18)*<br>
+            <input type="text">
+            (*) Mandatory
+            </div>
+         </div>
+         <div class="content">
+            <div style="font-weight: bold;">Warning</div>
+            <hr>
+            <br><br>
+            <div>
+            User name *<br>
+            <input type="text" class="name"><span class="erorr"></span><br><br>
+            Password *<br>
+            <input type="password" class="pass1"><span class="erorr"></span><br><br>
+            Confirm Password *<br>
+            <input type="password" class="pass2"><span class="erorr"></span><br><br>
+            (*) Mandatory
+            </div>
+         </div>
+         <div class="content">
+            This field is required <input type="checkbox"> I agree with Terms and Conditions
+         </div>
+      </div>
+      <div align="right" id="iconbutton">
+         
+         <button class="pre" style="background-color: #146c91;font-size: 18px;color: white">Previous</button>
+         <button class="next" style="background-color: #146c91;font-size: 18px;color: white">Next</button>
+      </div>
+      
+   </div>
+   <script>
+      $(document).ready(function(){
+         var content = $('.content');
+         for (var i = 0; i < content.length; i++) {
+            content.eq(i).css({'display':'none'});
+         }
+         function dieuhuong(n){
+            content.eq(n).css({'display':'block'});
+         }
+         var numberslide = 0;
+         content.eq(0).css({'display':'block'})
+         $('.next').on('click',function(){
+            var dem = 0;
+            if ($('.name').val()=="") {
+               $('.erorr').eq(0).text("Nhập đầy đủ họ tên");
+               dem++;
+            }else {
+               $('.erorr').eq(0).text("");
+            }
+            if ($('.pass1').val()=="") {
+               $('.erorr').eq(1).text("Nhập mật khẩu");
+               dem++;
+            }else if ($('.pass1').val()<7) {
+               $('.erorr').eq(1).text("Mật khẩu phải lớn hơn 6 kí tự");
+               dem++;
+            }else {
+               $('.erorr').eq(1).text("");
+            }
+            if ($('.pass2').val()!=$('.pass1').val()) {
+               $('.erorr').eq(2).text("Mật khẩu không trùng khớp");
+               dem++;
+            }  
+            if (dem == 0) {
+               numberslide++;
+               for (var i = 0; i < content.length; i++) {
+                  content.eq(i).css({'display':'none'});
+               }
+               if(numberslide > 3){
+                  numberslide = 0;
+               }
+               content.eq(numberslide).css({'display':'block'});
+            }
+            if ('.1name'.val()=="") {
+               $('span').eq(3).text("Nhập lại mật khẩu");
+            }     
+         })
+         $('.pre').on('click',function(){
+            var dem = 0;
+            if (dem == 0) {
+               numberslide--;
+               for (var i = 0; i < content.length; i++) {
+                  content.eq(i).css({'display':'none'});
+               }
+               if(numberslide > 3){
+                  numberslide = 0;
+               }
+               content.eq(numberslide).css({'display':'block'});
+            }     
+         })
+      })
+   </script>
+</body>
+</html>

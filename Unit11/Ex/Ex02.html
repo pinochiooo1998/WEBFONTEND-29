@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Jquery</title>
+	<script src="../Js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<p>The p</p>
+	<div id="text" class="cls_text">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur nulla dolor eos, minus adipisci deserunt.
+		<input type="" name="" id="name">
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('p').text("<a href='google.com'>The p</a>");
+			// $('p').html("<a href='google.com'>The p</a>");
+			$('#name').val("123456");
+			$('p').css('color','red');
+			$('div').css({'color':'red','background':'green'});
+            $('div').width('200px');
+            $('div').height('200px');
+            // $('p').remove();
+            $('p').empty();
+
+
+		})
+
+	</script>
+</body>
+</html>

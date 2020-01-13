@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../Js/jquery-3.4.1.min.js"></script>
+	<style type="text/css">
+		.active{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="active">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet veniam nulla, aliquam iusto esse fugit quasi voluptates aperiam consequatur temporibus aut ipsam culpa minus iste sint voluptatibus deleniti? A, asperiores.</div>
+	<button>addClass</button>
+	<button>removeClass</button>
+	<button>toggleClass</button>
+	<button id="clickme">Clickme</button>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		$('button').eq(0).on('click',function () {
+			$('div').addClass('active');
+		})
+		$('button').eq(1).on('click',function () {
+			$('div').removeClass('active');
+		})
+		$('button').eq(2).on('click',function () {
+			$('div').toggleClass('active');
+		})
+        $('#clickme').on('click',function(){
+        	$(this).after("<button id='test'>Vua sinh ra</button>")
+        })
+        $('body').on('click','#test',function(){
+        	alert("Test")
+        })
+	});
+	</script>
+</body>
+</html>
