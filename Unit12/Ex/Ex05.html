@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ex04</title>
+    <script src="../../Unit11/Js/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/localization/messages_vi.min.js"></script>
+    <style type="text/css">
+      .error{
+           color: red;
+      }
+    </style>
+</head>
+<body>
+          <form id="frm">
+            Họ và tên <input type="text" name="name">
+            <br>
+            Email <input type="email" name="email">
+            <br>
+            Số điện thoại <input type="text" name="phone">
+            <br>
+            <input type="submit" value="Đăng ký">
+          </form>
+          <script type="text/javascript">
+            $(document).ready(function () {
+                $("#frm").validate({
+                  rules: {
+                    name: "required",
+                    email: {
+                      required: true,
+                      email: true,
+                    },
+                    phone: {
+                      required: true,
+                      number: true,
+                      minlength: 10,
+                      maxlength: 10,
+                    },
+                  },
+                  messages: {
+                    name: "Vui lòng nhập tên",
+                     email:{
+                      required:"Vui lòng nhập email",
+                      email:"Vui lòng nhập đúng định dạng"
+                    }
+                  }
+                });
+            });
+          </script>
+</body>
+</html>

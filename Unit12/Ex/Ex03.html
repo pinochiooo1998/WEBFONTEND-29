@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ex03</title>
+	<script src="../../Unit11/Js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore ipsam, quo dolor aut qui beatae harum, autem animi explicabo atque recusandae enim delectus totam temporibus optio, dicta aperiam maiores ut!
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores ab sapiente, doloremque, soluta quis earum natus voluptatum, voluptas beatae, dolorem ad? Voluptatem delectus qui perferendis dolor vel est, eum debitis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores ab sapiente, doloremque, soluta quis earum natus voluptatum, voluptas beatae, dolorem ad? Voluptatem delectus qui perferendis dolor vel est, eum debitis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores ab sapiente, doloremque, soluta quis earum natus voluptatum, voluptas beatae, dolorem ad? Voluptatem delectus qui perferendis dolor vel est, eum debitis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores ab sapiente, doloremque, soluta quis earum natus voluptatum, voluptas beatae, dolorem ad? Voluptatem delectus qui perferendis dolor vel est, eum debitis.</p>
+	<button>show</button>
+	<button>hide</button>
+	<button>toggle</button>
+    
+    <button>slideDown</button>
+	<button>slideUp</button>
+	<button>slideToggle</button>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('button').eq(0).on('click',function(){
+				$('p').show();
+			})
+			$('button').eq(1).on('click',function(){
+				$('p').hide();
+			})
+	        $('button').eq(2).on('click',function(){
+				$('p').toggle();
+			})
+	        $('button').eq(3).on('click',function(){
+				$('p').slideDown(4000);
+			})
+			$('button').eq(4).on('click',function(){
+				$('p').slideUp(4000);
+			})
+			$('button').eq(5).on('click',function(){
+				$('p').slideToggle(4000);
+			})
+
+	
+
+
+
+
+		})
+	</script>
+</body>
+</html>

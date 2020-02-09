@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../Unit11/Js/jquery-3.4.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../Unit04/css/font-awesome.min.css">
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		#menu>ul>li{
+           float: left;
+           padding-right: 20px;
+           list-style: none;
+           background-color: #4d86e3;
+           position: relative;
+
+
+		}
+				#menu ul li a{
+					text-decoration: none;
+					color: white;
+				}
+				#submenu>li{
+                   list-style: none;
+                   
+				}
+				#submenu1>li{
+                   list-style: none;
+                   
+				}
+				#submenu2>li{
+                   list-style: none;
+                   
+				}
+				#submenu{
+					position: absolute;
+                    top: 20px;
+                    width: 300%;
+                    background-color: #4d86e3;
+                    display: none;
+                  
+				}
+				#submenu1{
+					position: absolute;
+					 background-color: #4d86e3;
+					 left: 214px;
+					 top: 61px;
+					 width: 100%;
+					 display: none;
+					
+				}
+				#submenu2{
+					position: absolute;
+					 background-color: #4d86e3;
+					top: 20px;
+                    width: 100%;
+                    display: none;
+             
+                
+				}
+				#menu li:hover{
+					background-color: #f5b92f;
+				}
+				#submenu li, #submenu1 li, #submenu2 li{
+					padding-left: 5px;
+
+				}
+				
+	</style>
+</head>
+<body>
+	<div id="menu">
+	<ul>
+		<li><a href="">Home</a></li>
+		<li><a href="">Profile</a></li>
+		<li><a href="">Services</a>
+           <ul id="submenu">
+           	<li><a href="">Web Designer</a></li>
+           	<li><a href="">Web Development</a></li>
+           	<li><a href="">Logo and Print Design</a></li>
+           	<li><a href="">Batahor Enak Neh</a>
+                <ul id="submenu1">
+                	<li><a href="">Web Designer</a></li>
+           	<li><a href="">Web Development</a></li>
+           	<li><a href="">Logo and Print Design</a></li>
+           	<li><a href="">Batahor Enak Neh</a></li>
+                </ul>
+           	</li>
+           	<li><a href="">Ngerujak juga</a></li>
+           </ul>
+		</li>
+		<li><a href="">Portofolio</a></li>
+		<li><a href="">Pengen ke Arab</a></li>
+		<li><a href="">Beasiswa S2 Go!! Go!!</a>
+           <ul id="submenu2">
+           	<li><a href="">Lokal</a></li>
+           	<li><a href="">International</a></li>
+           </ul>
+		</li>
+		<li><a href="">Hire me</a></li>
+	</ul>
+</div>
+  <script type="text/javascript">
+  	$(document).ready(function () {
+  		  	$("#menu li").hover(function(){
+               $(this).find("ul:first").slideDown(500);
+  		  	},function(){
+               $(this).find("ul:first").hide(300);
+
+  		  	});
+  		
+  	})
+  </script>
+</body>
+</html>

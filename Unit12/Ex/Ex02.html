@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ex01</title>
+	<script src="../../Unit11/Js/jquery-3.4.1.min.js"></script>
+    <style type="text/css">
+    	div{
+    		border: solid 2px black;
+    	}
+    	div *{
+    		display: block;
+    		border: solid 2px black;
+    		padding: 5px;
+    		margin: 15px;
+    	}
+    </style>
+</head>
+<body>
+	<div>div
+		<h1>h1</h1>
+		<h1>h1</h1>
+		<h2>h2</h2>
+		<h3>h3</h3>
+		<h4>h4</h4>
+	</div>
+	   <ul>
+	   	<li class="mb">Ha Noi</li>
+	   	<li class="mb">Hai Phong</li>
+	   	<li>HCM</li>
+	   	<li>Ca Mau</li>
+	   </ul>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('h2').nextAll().css({'border-color':'red'});
+			$('h2').prevAll().css({'border-color':'red'});
+
+			$('h2').siblings().css({'border-color':'blue'});
+
+			$('h1').first().css({'border-color':'green'});
+			$('h1').last().css({'border-color':'yellow'});
+            
+            $('li').filter('.mb').css({'background':'yellow'});
+             $('li').not('.mb').css({'background':'green'});
+
+		})
+	</script>
+</body>
+</html>

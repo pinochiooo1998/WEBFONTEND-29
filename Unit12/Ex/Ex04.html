@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ex04</title>
+    <script src="../../Unit11/Js/jquery-3.4.1.min.js"></script>
+    <style type="text/css">
+    	div{
+    		width: 100px;
+    		height: 100px;
+    		margin-bottom: 10px;
+    	}
+    </style>
+</head>
+<body>
+	<div style="background-color: red;position: relative;"></div>
+	<div style="background-color: green"></div>
+	<div style="background-color: blue"></div>
+      
+      <button>fadeIn</button>
+      <button>fadeOut</button>
+      <button>fadeToggle</button>
+      <button>animate</button>
+      <script type="text/javascript">
+      	$(document).ready(function () {
+      		$('button').eq(0).on('click',function(){
+      			$('div').eq(0).fadeIn(3000);
+      			$('div').eq(1).fadeIn(3000);
+      		})
+      		$('button').eq(1).on('click',function(){
+      			$('div').eq(0).fadeOut(3000);
+      			$('div').eq(1).fadeOut(3000);
+      		})
+      		$('button').eq(2).on('click',function(){
+      			$('div').eq(0).fadeToggle(3000);
+      			$('div').eq(1).fadeToggle(3000);
+      		})
+        $("button").eq(3).click(function(){
+        $("div").eq(0).animate({
+		left: '+=250px', 
+        opacity: 0.25,
+        fontSize: '20px'});
+    });
+      	})
+      </script>
+</body>
+</html>
